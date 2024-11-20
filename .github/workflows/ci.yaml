@@ -39,6 +39,9 @@ jobs:
     #      - /var/lib/buildkit/${{ github.repository }}:/var/lib/buildkit
     #      - /usr/etc/buildkit/buildkitd.toml:/etc/buildkit/buildkitd.toml
     steps:
+      - name: Install make
+        run: sudo apt-get update && sudo apt-get install make
+        
       - name: checkout
         uses: actions/checkout@v4
         with:
