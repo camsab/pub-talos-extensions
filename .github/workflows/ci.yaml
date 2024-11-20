@@ -25,7 +25,7 @@ jobs:
       issues: read
       packages: write
       pull-requests: read
-    runs-on: ubuntu-latest
+    runs-on: home-runners
     if: (!startsWith(github.head_ref, 'renovate/') && !startsWith(github.head_ref, 'dependabot/'))
     outputs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
@@ -58,6 +58,7 @@ jobs:
             nodeselector=model=rk1
             limits.memory=2G
             limits.ephemeral-storage=2G
+            
       - name: Build
         run: |
           make
