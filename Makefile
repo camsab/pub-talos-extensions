@@ -12,8 +12,8 @@ ARTIFACTS := _out
 IMAGE_TAG ?= $(TAG)
 OPERATING_SYSTEM := $(shell uname -s | tr '[:upper:]' '[:lower:]')
 GOARCH := $(shell uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')
-REGISTRY ?= ghcr.io
-USERNAME ?= nberlee
+REGISTRY ?= registry.camsab.me
+USERNAME ?= talos
 REGISTRY_AND_USERNAME ?= $(REGISTRY)/$(USERNAME)
 KRES_IMAGE ?= ghcr.io/siderolabs/kres:latest
 CONFORMANCE_IMAGE ?= ghcr.io/siderolabs/conform:latest
@@ -51,7 +51,7 @@ COMMON_ARGS += --build-arg=PKG_KERNEL="$(PKG_KERNEL)"
 EXTENSIONS_IMAGE_REF ?= $(REGISTRY_AND_USERNAME)/extensions:$(TAG)
 PKGS ?= v1.8.0-24-ge72b2f4
 PKGS_PREFIX ?= ghcr.io/siderolabs
-PKG_KERNEL ?= ghcr.io/nberlee/kernel:v1.8.3
+PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.8.0-6.12-34-ga741c06
 
 # targets defines all the available targets
 
