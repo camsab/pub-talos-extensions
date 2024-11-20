@@ -29,15 +29,15 @@ jobs:
     if: (!startsWith(github.head_ref, 'renovate/') && !startsWith(github.head_ref, 'dependabot/'))
     outputs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
-    services:
-      buildkitd:
-        image: moby/buildkit:v0.16.0
-        options: --privileged
-        ports:
-          - 1234:1234
-        volumes:
-          - /var/lib/buildkit/${{ github.repository }}:/var/lib/buildkit
-          - /usr/etc/buildkit/buildkitd.toml:/etc/buildkit/buildkitd.toml
+    #services:
+    #  buildkitd:
+    #    image: moby/buildkit:v0.16.0
+    #    options: --privileged
+    #    ports:
+    #      - 1234:1234
+    #    volumes:
+    #      - /var/lib/buildkit/${{ github.repository }}:/var/lib/buildkit
+    #      - /usr/etc/buildkit/buildkitd.toml:/etc/buildkit/buildkitd.toml
     steps:
       - name: checkout
         uses: actions/checkout@v4
