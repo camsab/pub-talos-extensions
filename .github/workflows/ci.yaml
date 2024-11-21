@@ -30,9 +30,9 @@ jobs:
     outputs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
     steps:
-      - name: Install make
-        run: sudo apt-get update && sudo apt-get install make yq
-        
+      - name: Install make and yq
+        run: sudo apt-get update && sudo apt-get install make && sudo snap install yq --channel=v3/stable
+      
       - name: checkout
         uses: actions/checkout@v4
         with:
