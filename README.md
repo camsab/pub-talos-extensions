@@ -1,7 +1,9 @@
 # Friendy fork
 This is a friendly fork, only here as the Turing RK1 has a different kernel, therefor it needs different extensions for kernel module drivers.
-Also please use the *rk3588* extension and make sure to add `rockchip-cpufreq` to the `machine.kernel.modules` in your machine config.
+
+Also please use the *rk3588* extension ~~and make sure to add `rockchip-cpufreq` to the `machine.kernel.modules` in your machine config.~~
 See: [rk3588](sbcs/rk3588) extension
+
 You may continue to use extensions from the `siderolabs/extensions` repo as long as they are not build with kernel modules.
 
 # Talos Linux System Extensions
