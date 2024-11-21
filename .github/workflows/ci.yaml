@@ -31,7 +31,7 @@ jobs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
     steps:
       - name: Install make and yq
-        run: sudo apt-get update && sudo apt-get install make && sudo snap install yq --channel=v3/stable
+        run: sudo apt-get update && sudo apt-get install make
       
       - name: checkout
         uses: actions/checkout@v4
@@ -87,6 +87,7 @@ jobs:
         run: |
           sudo chmod -R 777 /usr/local/bin/
           curl -sL "https://github.com/google/go-containerregistry/releases/download/v0.20.2/go-containerregistry_Linux_arm64.tar.gz" | tar -zxv -C /usr/local/bin/ crane
+          curl -sL  https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_darwin_arm64.tar.gz | tar -zxv -C /usr/local/bin/ yq
           make extensions
       - name: release-notes
         if: startsWith(github.ref, 'refs/tags/')
