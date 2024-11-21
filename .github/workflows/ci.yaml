@@ -31,7 +31,7 @@ jobs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
     steps:
       - name: Install make
-        run: sudo apt-get update && sudo apt-get install make
+        run: sudo apt-get update && sudo apt-get install make yq
         
       - name: checkout
         uses: actions/checkout@v4
@@ -53,23 +53,17 @@ jobs:
             limits.memory=2G
             limits.ephemeral-storage=2G
             
-      - name: Build
-        run: |
-          make
-      #- name: Login to registry
+      #- name: Build
+      #  run: |
+      #    make
+#
+      #- name: Push to registry
       #  if: github.event_name != 'pull_request'
-      #  uses: docker/login-action@v3
-      #  with:
-      #    password: ${{ secrets.GITHUB_TOKEN }}
-      #    registry: ghcr.io
-      #    username: ${{ github.repository_owner }}
-      - name: Push to registry
-        if: github.event_name != 'pull_request'
-        env:
-          USERNAME: ${{ github.repository_owner }}
-          CI_ARGS: --provenance=true
-        run: |
-          make  PUSH=true 
+      #  env:
+      #    USERNAME: ${{ github.repository_owner }}
+      #    CI_ARGS: --provenance=true
+      #  run: |
+      #    make  PUSH=true 
       - name: Retrieve PR labels
         id: retrieve-pr-labels
         uses: actions/github-script@v7
@@ -91,7 +85,6 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           PUSH: "true"
         run: |
-          apk add yq
           sudo chmod -R 777 /usr/local/bin/
           curl -sL "https://github.com/google/go-containerregistry/releases/download/v0.20.2/go-containerregistry_Linux_arm64.tar.gz" | tar -zxv -C /usr/local/bin/ crane
           make extensions
