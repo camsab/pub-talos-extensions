@@ -53,17 +53,17 @@ jobs:
             limits.memory=2G
             limits.ephemeral-storage=2G
             
-      #- name: Build
-      #  run: |
-      #    make
-#
-      #- name: Push to registry
-      #  if: github.event_name != 'pull_request'
-      #  env:
-      #    USERNAME: ${{ github.repository_owner }}
-      #    CI_ARGS: --provenance=true
-      #  run: |
-      #    make  PUSH=true 
+      - name: Build
+        run: |
+          make
+
+      - name: Push to registry
+        if: github.event_name != 'pull_request'
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          CI_ARGS: --provenance=true
+        run: |
+          make  PUSH=true 
       - name: Retrieve PR labels
         id: retrieve-pr-labels
         uses: actions/github-script@v7
