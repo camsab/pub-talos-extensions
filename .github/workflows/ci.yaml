@@ -17,6 +17,10 @@ concurrency:
     branches:
       - main
       - release-*
+env:
+  REGISTRY: registry.camsab.me:443
+  USER: "talos"
+
 jobs:
   default:
     permissions:
@@ -63,7 +67,11 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           CI_ARGS: --provenance=true
         run: |
-          make  PUSH=true 
+          make
+          env:
+            PUSH: '1'
+            REGISTRY_AND_USERNAME: ${{ env.REGISTRY }}/${{ env.USER }}
+            
       - name: Retrieve PR labels
         id: retrieve-pr-labels
         uses: actions/github-script@v7
