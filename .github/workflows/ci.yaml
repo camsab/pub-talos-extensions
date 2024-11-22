@@ -17,6 +17,7 @@ concurrency:
     branches:
       - main
       - release-*
+  workflow_dispatch:    
 jobs:
   default:
     permissions:
