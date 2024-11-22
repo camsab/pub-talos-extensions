@@ -17,9 +17,7 @@ concurrency:
     branches:
       - main
       - release-*
-env:
-  REGISTRY: registry.camsab.me:443
-  USER: "camrossi"
+
   
 jobs:
   default:
@@ -63,8 +61,8 @@ jobs:
 
       - name: Push to registry
         if: github.event_name != 'pull_request'
-        env:
-          REGISTRY_AND_USERNAME: ${{ env.REGISTRY }}/${{ env.USER }}
+        env:  
+          REGISTRY_AND_USERNAME: registry.camsab.me:443/talos
           CI_ARGS: --provenance=true
         run: |
           make PUSH=true

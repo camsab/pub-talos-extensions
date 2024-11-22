@@ -53,7 +53,7 @@ PKGS ?= v1.8.0-24-ge72b2f4
 PKGS_PREFIX ?= ghcr.io/siderolabs+
 #registry.camsab.me:443/camrossi/kernel:v1.8.3-6.12.0
 #registry.camsab.me:443/talos/kernel:$(TAG)
-PKG_KERNEL ?= registry.camsab.me:443/camrossi/kernel:$(TAG)
+PKG_KERNEL ?= registry.camsab.me:443/camrossi/kernel:v1.8.3-6.12.0
 
 # targets defines all the available targets
 
