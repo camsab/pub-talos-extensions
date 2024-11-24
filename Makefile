@@ -51,7 +51,7 @@ COMMON_ARGS += --build-arg=PKG_KERNEL="$(PKG_KERNEL)"
 EXTENSIONS_IMAGE_REF ?= $(REGISTRY_AND_USERNAME)/extensions:$(TAG)
 PKGS ?= v1.8.0-31-g9c80a4a
 PKGS_PREFIX ?= ghcr.io/siderolabs
-PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.8.3-6.12.0
+PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.8.3-6.12.1
 
 # targets defines all the available targets
 
