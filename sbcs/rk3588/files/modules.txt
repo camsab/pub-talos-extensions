@@ -7,3 +7,15 @@ kernel/drivers/char/hw_random/rockchip-rng.ko
 kernel/drivers/gpu/drm/panthor/panthor.ko
 kernel/drivers/media/platform/rockchip/rga/rockchip-rga.ko
 kernel/drivers/media/platform/verisilicon/hantro-vpu.ko
+kernel/drivers/media/common/videobuf2/videobuf2-common.ko
+kernel/drivers/media/common/videobuf2/videobuf2-dma-contig.ko
+kernel/drivers/media/common/videobuf2/videobuf2-dma-sg.ko
+kernel/drivers/media/common/videobuf2/videobuf2-memops.ko
+kernel/drivers/media/common/videobuf2/videobuf2-v4l2.ko
+kernel/drivers/media/common/videobuf2/videobuf2-vmalloc.ko
+kernel/drivers/media/v4l2-core/v4l2-dv-timings.ko
+kernel/drivers/media/v4l2-core/v4l2-h264.ko
+kernel/drivers/media/v4l2-core/v4l2-jpeg.ko
+kernel/drivers/media/v4l2-core/v4l2-mem2mem.ko
+kernel/drivers/media/v4l2-core/v4l2-vp9.ko
+kernel/drivers/media/v4l2-core/videodev.ko
