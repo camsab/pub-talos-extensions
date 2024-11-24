@@ -88,13 +88,3 @@ jobs:
           curl -sL "https://github.com/google/go-containerregistry/releases/download/v0.20.2/go-containerregistry_Linux_arm64.tar.gz" | tar -zxv -C /usr/local/bin/ crane
           curl -sL https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_linux_arm64.tar.gz | tar -zxv -C /usr/local/bin/ ./yq_linux_arm64 --transform="flags=r;s|yq_linux_arm64|yq|"
           make extensions
-      - name: release-notes
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          make release-notes
-      - name: Release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: crazy-max/ghaction-github-release@v2
-        with:
-          body_path: _out/RELEASE_NOTES.md
-          draft: "true"
