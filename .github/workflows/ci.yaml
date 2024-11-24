@@ -31,7 +31,7 @@ jobs:
     outputs:
       labels: ${{ steps.retrieve-pr-labels.outputs.result }}
     steps:
-      - name: Install make and yq
+      - name: Install make
         run: sudo apt-get update && sudo apt-get install make
       
       - name: checkout
@@ -61,7 +61,6 @@ jobs:
       - name: Push to registry
         if: github.event_name != 'pull_request'
         env:
-          REGISTRY_AND_USERNAME: ${{ env.REGISTRY }}/${{ env.USER }}
           CI_ARGS: --provenance=true
         run: |
           make PUSH=true
@@ -83,7 +82,6 @@ jobs:
       - name: extensions
         if: github.event_name != 'pull_request'
         env:
-          USERNAME: ${{ github.repository_owner }}
           PUSH: "true"
         run: |
           sudo chmod -R 777 /usr/local/bin/
