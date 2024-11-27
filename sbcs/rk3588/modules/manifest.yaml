@@ -1,6 +1,6 @@
 version: v1alpha1
 metadata:
-  name: rk3588-drivers
+  name: rk3588
   version: "$VERSION"
   author: Nico Berlee
   description: |

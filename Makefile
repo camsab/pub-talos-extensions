@@ -57,6 +57,7 @@ PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.8.3-6.12.1
 
 TARGETS = binfmt-misc
 TARGETS += rk3588
+TARGETS += mali-gpu-firmware
 TARGETS += usb-modem-drivers
 
 # help menu
