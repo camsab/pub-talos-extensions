@@ -1,0 +1,10 @@
+version: v1alpha1
+metadata:
+  name: mali-gpu-firmware
+  version: "$VERSION"
+  author: Camillo Rossi
+  description: |
+    This system extension provides the Mali GPU firmware binaries.
+  compatibility:
+    talos:
+      version: ">= v1.8.0"
