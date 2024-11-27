@@ -11,7 +11,7 @@ steps:
     install:
       - |
         mkdir -p /rootfs/lib/firmware/arm/mali/arch10.8
-        cp -R -p /lib/arm/mali/arch10.8 rootfs/lib/firmware/arm/mali/
+        cp -R -p /lib/firmware/arm/mali/arch10.8 /rootfs/lib/firmware/arm/mali/
     test:
       - |
         mkdir -p /extensions-validator-rootfs
