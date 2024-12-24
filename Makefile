@@ -57,48 +57,9 @@ PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.9.0-6.12.6-custom
 
 # targets defines all the available targets
 
-TARGETS = amdgpu
-TARGETS += amd-ucode
-TARGETS += binfmt-misc
-TARGETS += bnx2-bnx2x
-TARGETS += btrfs
-TARGETS += chelsio-drivers
-TARGETS += chelsio-firmware
-TARGETS += cloudflared
-TARGETS += crun
-TARGETS += drbd
-TARGETS += dvb-cx23885
-TARGETS += ecr-credential-provider
-TARGETS += fuse3
-TARGETS += gasket-driver
-TARGETS += glibc
-TARGETS += gvisor
-TARGETS += gvisor-debug
-TARGETS += hello-world-service
-TARGETS += i915
-TARGETS += intel-ice-firmware
-TARGETS += intel-ucode
-TARGETS += iscsi-tools
-TARGETS += kata-containers
-TARGETS += lldpd
-TARGETS += mdadm
-TARGETS += mei
-TARGETS += metal-agent
-TARGETS += nut-client
-TARGETS += nvidia-container-toolkit-lts
-TARGETS += nvidia-container-toolkit-production
-TARGETS += nvidia-fabricmanager-lts
-TARGETS += nvidia-fabricmanager-production
-TARGETS += nvidia-open-gpu-kernel-modules-lts
-TARGETS += nvidia-open-gpu-kernel-modules-production
-TARGETS += qemu-guest-agent
-TARGETS += qlogic-firmware
-TARGETS += realtek-firmware
-TARGETS += spin
-TARGETS += stargz-snapshotter
-TARGETS += tailscale
-TARGETS += thunderbolt
-TARGETS += uinput
+TARGETS = binfmt-misc
+TARGETS += rk3588
+TARGETS += mali-gpu-firmware
 TARGETS += usb-modem-drivers
 
 # help menu
