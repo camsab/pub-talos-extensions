@@ -1,3 +1,9 @@
+# Friendy fork
+This is a friendly fork, only here as the Turing RK1 has a different kernel, therefor it needs different extensions for kernel module drivers.
+Also please use the *rk3588* extension and make sure to add `rockchip-cpufreq` to the `machine.kernel.modules` in your machine config.
+See: [rk3588](sbcs/rk3588) extension
+You may continue to use extensions from the `siderolabs/extensions` repo as long as they are not build with kernel modules.
+
 # Talos Linux System Extensions
 
 This repo serves as a central place for publishing supported extensions to Talos Linux.
@@ -133,15 +139,11 @@ cosign verify --certificate-identity-regexp '@siderolabs\.com$' --certificate-oi
 
 | Name                                                             | Description                                                                                                                        | Version Format                     |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| [nvidia-container-toolkit](nvidia-gpu/nvidia-container-toolkit/) | Tools to run [NVIDIA GPU workloads](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/overview.html) in containers | `driver version`-`toolkit version` |
-| [nvidia-fabricmanager](nvidia-gpu/nvidia-fabricmanager/)         | [NVIDIA fabric manager](https://docs.nvidia.com/datacenter/tesla/pdf/fabric-manager-user-guide.pdf) support for GPU workloads      | `driver version`                   |
-| [nvidia-open-gpu-kernel-modules](nvidia-gpu/nvidia-modules/)     | NVIDIA driver kernel modules                                                                                                       | `driver version`-`talos version`   |
 
 #### Tools
 
 | Name                                  | Description                               | Version Format     |
 | ------------------------------------- | ----------------------------------------- | ------------------ |
-| [util-linux-tools](tools/util-linux/) | Util Linux tools (`fstrim` and `nsenter`) | `upstream version` |
 
 ## Building Extensions
 

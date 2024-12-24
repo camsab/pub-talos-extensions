@@ -12,8 +12,8 @@ ARTIFACTS := _out
 IMAGE_TAG ?= $(TAG)
 OPERATING_SYSTEM := $(shell uname -s | tr '[:upper:]' '[:lower:]')
 GOARCH := $(shell uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')
-REGISTRY ?= ghcr.io
-USERNAME ?= siderolabs
+REGISTRY ?= registry.camsab.me
+USERNAME ?= talos
 REGISTRY_AND_USERNAME ?= $(REGISTRY)/$(USERNAME)
 KRES_IMAGE ?= ghcr.io/siderolabs/kres:latest
 CONFORMANCE_IMAGE ?= ghcr.io/siderolabs/conform:latest
@@ -32,7 +32,7 @@ BLDR := docker run --rm --user $(shell id -u):$(shell id -g) --volume $(PWD):/sr
 # docker build settings
 
 BUILD := docker buildx build
-PLATFORM ?= linux/amd64,linux/arm64
+PLATFORM ?= linux/arm64
 PROGRESS ?= auto
 PUSH ?= false
 CI_ARGS ?=
@@ -46,12 +46,14 @@ COMMON_ARGS += --build-arg=BUILDKIT_MULTI_PLATFORM=$(BUILDKIT_MULTI_PLATFORM)
 COMMON_ARGS += --build-arg=TAG="$(TAG)"
 COMMON_ARGS += --build-arg=PKGS="$(PKGS)"
 COMMON_ARGS += --build-arg=PKGS_PREFIX="$(PKGS_PREFIX)"
+COMMON_ARGS += --build-arg=PKG_KERNEL="$(PKG_KERNEL)"
 
 # extra variables
 
 EXTENSIONS_IMAGE_REF ?= $(REGISTRY_AND_USERNAME)/extensions:$(TAG)
 PKGS ?= v1.9.0-12-g9576b97
 PKGS_PREFIX ?= ghcr.io/siderolabs
+PKG_KERNEL ?= registry.camsab.me:443/talos/kernel:v1.8.3-6.12.1
 
 # targets defines all the available targets
 
@@ -98,14 +100,6 @@ TARGETS += tailscale
 TARGETS += thunderbolt
 TARGETS += uinput
 TARGETS += usb-modem-drivers
-TARGETS += util-linux-tools
-TARGETS += v4l-uvc-drivers
-TARGETS += vmtoolsd-guest-agent
-TARGETS += wasmedge
-TARGETS += xen-guest-agent
-TARGETS += zfs
-NONFREE_TARGETS = nonfree-kmod-nvidia-lts
-NONFREE_TARGETS += nonfree-kmod-nvidia-production
 
 # help menu
 
