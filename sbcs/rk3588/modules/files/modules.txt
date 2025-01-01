@@ -1,8 +1,6 @@
 modules.order
 modules.builtin
 modules.builtin.modinfo
-kernel/drivers/crypto/rockchip/rk_crypto2.ko
-kernel/crypto/sm3_generic.ko
 kernel/drivers/media/platform/rockchip/rga/rockchip-rga.ko
 kernel/drivers/media/platform/verisilicon/hantro-vpu.ko
 kernel/drivers/media/mc/mc.ko
